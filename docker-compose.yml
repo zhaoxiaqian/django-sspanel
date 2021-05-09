@@ -15,7 +15,7 @@ services:
       - sspanel_network
   web:
     container_name : sspanel-web
-    image: sspanel
+    image: ehco1996/django-sspanel:ssr
     environment:
       MYSQL_PASSWORD: yourpass
       MYSQL_HOST: db

@@ -15,7 +15,6 @@ services:
       - sspanel_network
   web:
     container_name : sspanel-web
-    build: .
     image: sspanel
     environment:
       MYSQL_PASSWORD: yourpass

@@ -20,5 +20,6 @@ RUN apt-get update -qq && \
         python3-dev \
         default-libmysqlclient-dev vim cron syslog-ng && \
     pip install --no-cache-dir -r requirements.txt && \
-    apt-get purge -qq -y build-essential python3-dev
+    apt-get purge -qq -y build-essential python3-dev && \
+    python3 manage.py collectstatic --no-input
 

@@ -26,6 +26,23 @@ services:
       - db
     networks:
       - sspanel_network
+  cron:
+        container_name : sspanel-cron
+        image: ehco1996/django-sspanel:ssr
+        command: >
+          bash -c "python manage.py crontab add &&
+          syslog-ng &&
+          cron -f"
+          environment:
+          MYSQL_PASSWORD: yourpass
+          MYSQL_HOST: db
+        volumes:
+          - .:/src/django-sspanel
+          - static:/src/django-sspanel/static
+        depends_on:
+          - db
+        networks:
+          - sspanel_network
   nginx:
     image: nginx
     restart: always
